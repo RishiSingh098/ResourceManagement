@@ -237,7 +237,11 @@
     {
       "node_modules": "npm/node_modules",
       "sourceMap": "app/app.js.map",
-      "path": "app/app.js"
+      "path": "app/app.js",
+      "assets": {
+        "fake_data_creator.py": "assets/app/fake_data_creator.py",
+        "node_queries.js": "assets/app/node_queries.js"
+      }
     }
   ]
 }
