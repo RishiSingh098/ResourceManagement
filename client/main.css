@@ -1,0 +1,55 @@
+/* CSS declarations go here */
+
+.employee_selected tr{
+  background-color: #3bef47;
+}
+
+.hoverTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.hoverTable td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+.hoverTable tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.hoverTable tr {
+  background-color: white;
+}
+
+.hoverTable tr:hover {
+  background-color: #3bef47;
+}
+.hoverTable tr.employee_selected {
+  background-color: #3bef47;
+}
+
+
+
+#top-left {
+    position: absolute;
+    left: 0px ;
+    width: 33.3333%;
+    height: 50%;
+    background-color: yellow;
+}
+#top-middle {
+    position: absolute;
+    right: 33.3333%;
+    width: 33.3333%;
+    height: 50%;
+}
+#top-right {
+    position: absolute;
+    right:0px;
+    width: 33.3333%;
+    height: 50%;
+    background-color: #c0e4ea;
+}
