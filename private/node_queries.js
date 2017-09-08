@@ -118,6 +118,12 @@ function all_teams(callback) {
 	})
 }
 
+function weekly_allocations(wwid, date, callback) {
+	MongoClient.connect(url, function(err, db) {
+		
+	})
+}
+
 // all_teams(function(err, locs) {
 // 	console.log(locs);
 // })
