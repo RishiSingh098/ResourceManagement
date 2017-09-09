@@ -6,9 +6,6 @@ import './main.html';
 employee_filtered_list = new ReactiveVar([]);
 employee_selected = new ReactiveVar([]);
 
-
-
-
 if(Meteor.isClient) {
   Employees = new Mongo.Collection('employees');
   Skills = new Mongo.Collection('skills');
@@ -63,5 +60,4 @@ if(Meteor.isClient) {
         return employee_selected.get();
         }
       });
-
 }

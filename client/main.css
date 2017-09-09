@@ -1,55 +1,36 @@
 /* CSS declarations go here */
-
-.employee_selected tr{
-  background-color: #3bef47;
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    fill: #242424;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    cursor: default;
 }
 
-.hoverTable {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+.legend {
+    font-family: 'Raleway', sans-serif;
+    fill: #333333;
 }
 
-.hoverTable td, th {
-    border: 1px solid black;
-    text-align: left;
-    padding: 8px;
+.tooltip {
+    fill: #333333;
 }
 
-.hoverTable tr:nth-child(odd) {
-    background-color: #dddddd;
+#resource-list-table th {
+    text-align: center;
 }
 
-.hoverTable tr {
-  background-color: white;
+#resource-list-table td {
+    vertical-align: middle;
 }
 
-.hoverTable tr:hover {
-  background-color: #3bef47;
-}
-.hoverTable tr.employee_selected {
-  background-color: #3bef47;
+#resource-list-table tr:hover, #resource-list-table tr.employee_selected {
+    background-color: #f3f3f3;
 }
 
-
-
-#top-left {
-    position: absolute;
-    left: 0px ;
-    width: 33.3333%;
-    height: 50%;
-    background-color: yellow;
-}
-#top-middle {
-    position: absolute;
-    right: 33.3333%;
-    width: 33.3333%;
-    height: 50%;
-}
-#top-right {
-    position: absolute;
-    right:0px;
-    width: 33.3333%;
-    height: 50%;
-    background-color: #c0e4ea;
+.col-bordered {
+    border: 2px solid #f2f2f2;
+    height: 50vh;
 }
