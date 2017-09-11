@@ -1,54 +1,31 @@
 <head>
   <title>resource_management</title>
-<!--
- <style>
-        body {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 11px;
-          font-weight: 300;
-          fill: #242424;
-          text-align: center;
-          text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-          cursor: default;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .legend {
-          font-family: 'Raleway', sans-serif;
-          fill: #333333;
-        }
-
-        .tooltip {
-          fill: #333333;
-        }
-  </style>
-  <title>Smoothed D3.js Radar Chart</title>
   <!-- Google fonts-->
-  <!--
+
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> 
-  -->
+
   <!-- D3.js
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>-->
 </head>
 
-
-
-
 <body>
-  <div class="container">
+  <div>
     <div class="col-12">
       <h1 class="text-center">Welcome to Resource Management</h1>
     </div>
-    <div class = "container">
-        <div  id="top-left">
+    <div>
+        <div class="col-md-4 col-bordered">
           {{>resource_filter}}
         </div>
 
-        <div id="top-middle" style="overflow-y:auto;">
+        <div class="col-md-4 col-bordered" style="overflow-y:auto;">
           {{>resource_list}}
         </div>
 
-        <div  id="top-right">
+        <div  class="col-md-4 col-bordered">
           {{>resource_display}}
         </div>
     </div>
@@ -61,6 +38,7 @@
 <!-- The template that is responsible for filtering employees-->
 <template name="resource_filter">
   <div class="container-fluid">
+    <h6>Pick desired skills:</h6>
     <form class="employee_filter">
       {{#each getSkills}}
         <label><input type="checkbox" class="skill_filter" name="skill_box" value={{skill}}>{{skill}}</label>
@@ -73,7 +51,6 @@
 <!-- The template that is responsible for showing a graphical
   representation of specific employees Ex. Charts, graph, etc.-->
 <template name="resource_display">
-
   <h5>Name: {{display_employee_details.name}}</h5>
   <h5>Role: {{display_employee_details.role}}</h5>
   <h5>Location: {{display_employee_details.location}}</h5>
@@ -108,22 +85,23 @@
 
 <!-- The template that is responsible for displaying the list of filtered employees-->
 <template name="resource_list">
-    <table class="hoverTable">
+    <h6>Choose from filtered employees:</h6>
+    <table id="resource-list-table" class="table">
       <thead>
         <th>
-          Name:
+          Name
         </th>
         <th>
-          Team:
+          Team
         </th>
         <th>
-          Role:
+          Role
         </th>
         <th>
-          Office:
+          Office
         </th>
         <th>
-          Location:
+          Location
         </th>
       </thead>
       <tbody>

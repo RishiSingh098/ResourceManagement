@@ -8290,37 +8290,26 @@ button.close {
 
 
 
-.employee_selected tr {
-  background-color: #3bef47;
+.legend {
+  font-family: 'Raleway', sans-serif;
+  fill: #333333;
 }
 
-.hoverTable {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.tooltip {
+  fill: #333333;
 }
 
-.hoverTable td,
-th {
-  border: 1px solid black;
-  text-align: left;
-  padding: 8px;
+#resource-list-table th {
+  text-align: center;
 }
 
-.hoverTable tr:nth-child(odd) {
-  background-color: #dddddd;
+#resource-list-table td {
+  vertical-align: middle;
 }
 
-.hoverTable tr {
-  background-color: white;
-}
-
-.hoverTable tr:hover {
-  background-color: #3bef47;
-}
-
-.hoverTable tr.employee_selected {
-  background-color: #3bef47;
+#resource-list-table tr:hover,
+#resource-list-table tr.employee_selected {
+  background-color: #f3f3f3;
 }
 
 table {
@@ -8345,26 +8334,7 @@ th {
   background-color: green;
 }
 
-#top-left {
-  position: absolute;
-  left: 0px;
-  width: 33.3333%;
-  height: 50%;
-  background-color: #bae3b6;
-}
-
-#top-middle {
-  position: absolute;
-  right: 33.3333%;
-  width: 33.3333%;
-  height: 50%;
-  background-color: #8ecf88;
-}
-
-#top-right {
-  position: absolute;
-  right: 0px;
-  width: 33.3333%;
-  height: 50%;
-  background-color: #bee496;
+.col-bordered {
+  border: 2px solid #f2f2f2;
+  height: 50vh;
 }
