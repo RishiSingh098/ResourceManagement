@@ -1,4 +1,4 @@
-/* CSS declarations go here */
+
 
 .employee_selected tr{
   background-color: #3bef47;
@@ -31,6 +31,28 @@
   background-color: #3bef47;
 }
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+.bottom-panel{
+    position: absolute;
+    height: 50%;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color: green;
+}
 
 
 #top-left {
@@ -38,18 +60,19 @@
     left: 0px ;
     width: 33.3333%;
     height: 50%;
-    background-color: yellow;
+    background-color: #bae3b6;
 }
 #top-middle {
     position: absolute;
     right: 33.3333%;
     width: 33.3333%;
     height: 50%;
+    background-color: #8ecf88;
 }
 #top-right {
     position: absolute;
     right:0px;
     width: 33.3333%;
     height: 50%;
-    background-color: #c0e4ea;
+    background-color: #bee496;
 }

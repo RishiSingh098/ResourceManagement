@@ -1,7 +1,7 @@
 <head>
   <title>resource_management</title>
-
-  <style>
+<!--
+ <style>
         body {
           font-family: 'Open Sans', sans-serif;
           font-size: 11px;
@@ -23,8 +23,10 @@
   </style>
   <title>Smoothed D3.js Radar Chart</title>
   <!-- Google fonts-->
+  <!--
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> 
+  -->
   <!-- D3.js
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>-->
 </head>
@@ -50,10 +52,8 @@
           {{>resource_display}}
         </div>
     </div>
-    <div>
-      <div class="container">
+    <div class="container-fluid">
         {{>resource_visualization}}
-      </div>
     </div>
   </div>
 </body>
@@ -73,14 +73,37 @@
 <!-- The template that is responsible for showing a graphical
   representation of specific employees Ex. Charts, graph, etc.-->
 <template name="resource_display">
-  <h3>Name: {{display_employee_details.name}}</h3>
-  <p>Location: {{display_employee_details.location}}</p>
-  <p>Role: {{display_employee_details.role}}</p>
-  {{>radarChart}}
+
+  <h5>Name: {{display_employee_details.name}}</h5>
+  <h5>Role: {{display_employee_details.role}}</h5>
+  <h5>Location: {{display_employee_details.location}}</h5>
+  <table>
+  <thead>
+    <th>Skill:</th>
+    <th>Level:</th>
+  </thead>
+  <tbody>
+  {{#each display_employee_details.skills}}
+    <tr>
+      <td>
+        {{name}}
+      </td>
+      <td>{{level}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+  </table>
 </template>
 
 <template name="resource_visualization">
-
+  <div class="bottom-panel">
+      <div class="col-md-4" style="background-color: #8ecf88; height: 100%;">
+       stuff
+      </div>
+      <div class="col-md-8" style="background-color: #bae3b6 ; height: 100%">
+        {{>radarChart}}
+      </div>
+  </div>
 </template>
 
 <!-- The template that is responsible for displaying the list of filtered employees-->
