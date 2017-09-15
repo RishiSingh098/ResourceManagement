@@ -21,11 +21,11 @@
           {{>resource_filter}}
         </div>
 
-        <div class="col-md-4 col-bordered" style="overflow-y:auto;">
+        <div class="col-md-4 col-bordered" style="overflow-y:auto; background-color: #bae3b6">
           {{>resource_list}}
         </div>
 
-        <div  class="col-md-4 col-bordered">
+        <div  class="col-md-4 col-bordered" style="overflow-y:auto;">
           {{>resource_display}}
         </div>
     </div>
@@ -40,10 +40,14 @@
   <div class="container-fluid">
     <h6>Pick desired skills:</h6>
     <form class="employee_filter">
-      {{#each getSkills}}
-        <label><input type="checkbox" class="skill_filter" name="skill_box" value={{skill}}>{{skill}}</label>
-      {{/each}}
-      <input type="submit" value="Submit">
+      <div class="col-md-6">
+        {{#each getSkills}}
+          <label><input type="checkbox" class="skill_filter" name="skill_box" value={{skill}}>{{skill}}</label>
+        {{/each}}
+      </div>
+      <div class="col-md-6">
+          <input type="submit" value="Submit">
+      </div>
     </form>
   </div>
 </template>
@@ -51,6 +55,7 @@
 <!-- The template that is responsible for showing a graphical
   representation of specific employees Ex. Charts, graph, etc.-->
 <template name="resource_display">
+  <button type="button" class="btn btn-success">Add Employee</button>
   <h5>Name: {{display_employee_details.name}}</h5>
   <h5>Role: {{display_employee_details.role}}</h5>
   <h5>Location: {{display_employee_details.location}}</h5>
@@ -74,13 +79,43 @@
 
 <template name="resource_visualization">
   <div class="bottom-panel">
-      <div class="col-md-4" style="background-color: #8ecf88; height: 100%;">
-       stuff
+      <div class="col-md-4" style="background-color: #8ecf88; height: 100%; overflow-y: auto;">
+       <h2 style="text-align: center;">Team List</h2>
+       <table id="resource-list-table" class="table">
+         <thead>
+           <th>Name:</th>
+           <th>Color:</th>
+         </thead>
+         <tbody>
+            {{#each get_team_list}}
+              {{>team_row}}
+            {{/each}}
+         </tbody>
+       </table>
       </div>
-      <div class="col-md-8" style="background-color: #bae3b6 ; height: 100%">
+      <div class="col-md-4" style="background-color: white ; height: 100%">
         {{>radarChart}}
       </div>
+      <div class="col-md-4" style="background-color: #8ecf88 ; height: 100%">
+      <h2 style="text-align: center;">Skills Used</h2>
+        <div class="col-md-4" style="background-color: #8ecf88 ; overflow-y: auto; ">
+          {{>skillsUsed}}
+        </div>
+      </div>
   </div>
+</template>
+
+<template name="team_row">
+  <tr class="team_row">
+    <td>{{name}}</td>
+    <td style="background-color: {{get_employee_color(this._id)}}"></td>
+  </tr>
+</template>
+
+<template name="skillsUsed">
+  {{#each getUsedSkills}}
+    <label style="float: left; left: 0px;"><input type="checkbox" checked="true" class="skill_filter" name="skill_box" value={{skill}}>{{this}}</label>
+  {{/each}}
 </template>
 
 <!-- The template that is responsible for displaying the list of filtered employees-->
@@ -400,7 +435,7 @@
 
     }//RadarChart
 
-    console.log("WE HEEEEERRRRRRREEEEEEE!!!!!!");
+    //console.log("WE HEEEEERRRRRRREEEEEEE!!!!!!");
       /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
 
       //////////////////////////////////////////////////////////////
@@ -413,23 +448,37 @@
       //////////////////////////////////////////////////////////////
       ////////////////////////// Data //////////////////////////////
       //////////////////////////////////////////////////////////////
-      var data = [
-            [//iPhone
-            {axis:"Java",value:1},
-            {axis:"Brand",value:2},
-            {axis:"Contract Cost",value:3},
-            {axis:"Design And Quality",value:4},
-            {axis:"Have Internet Connectivity",value:5},
-            {axis:"Large Screen",value:4},
-            {axis:"Price Of Device",value:3},
-            {axis:"To Be A Smartphone",value:2}
-            ]
-          ];
+      var data = chartEmployees;
+      // [
+      //       [//iPhone
+      //       {axis:"Java",value:1},
+      //       {axis:"Brand",value:2},
+      //       {axis:"Contract Cost",value:3},
+      //       {axis:"Design And Quality",value:4},
+      //       {axis:"Have Internet Connectivity",value:5},
+      //       {axis:"Large Screen",value:4},
+      //       {axis:"Price Of Device",value:3},
+      //       {axis:"To Be A Smartphone",value:2}
+      //       ]
+      //       ,[//iPhone
+      //       {axis:"Java",value:1},
+      //       {axis:"Brand",value:2},
+      //       {axis:"Contract Cost",value:3},
+      //       {axis:"Design And Quality",value:4},
+      //       {axis:"Have Internet Connectivity",value:5},
+      //       {axis:"Large Screen",value:4},
+      //       {axis:"Price Of Device",value:3},
+      //       {axis:"To Be A Smartphone",value:2}
+      //       ]
+      //     ];
+      
       //////////////////////////////////////////////////////////////
       //////////////////// Draw the Chart //////////////////////////
       //////////////////////////////////////////////////////////////
+
       var color = d3.scale.ordinal()
-        .range(["#00A0B0","#EDC951","#CC333F"]);
+        .range(chartColorsUsed);
+       
 
       var radarChartOptions = {
         w: width,
