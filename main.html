@@ -1,0 +1,51 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Login</title>
+</head>
+
+<body id="main">
+  {{> header}}
+  {{> PAT}}
+  {{> EAE}}
+</body>
+
+<template name="header">
+  <div class='container'>
+    <div id="title">
+      <center><h1><em>Resource Management</em></h1></center>
+    </div>
+    <div id="EAE">
+      <button   >Employee Allocation Entry</button>
+    </div>
+    <div id="MAE">
+      <button>Manager Allocation Entry</button>
+    </div>
+    <div id="PAT">
+      <button>Project Assingment Tool</button>
+    </div>
+  </div>
+</template>
+
+ <template name="EAE">
+    <br><br><br>
+    <div class="inputs">
+      <ul>
+        <center><li><label for="WWID"> WWID:</label><input type="text" name="WWID"></li></center><br>
+        <center><li><label for="Password">Password:</label><input type="text" name="Password"></li></center><br>
+
+       <center><li><button>Go</button></li></center>
+     </ul>
+   </div>
+  </template>
+
+  <template name="PAT">
+    <br><br><br>
+    <div class="inputs">
+      <ul>
+        <center><li><label for="Start"> Start Date:    </label><input type="text" name="Start"></li></center><br>
+       <center><li><label for="End">End Date:     </label><input type="text" name="End"></li></center><br>
+        <center><li><label for="Location">Location:      </label><input type="text" name="Location"></li></center><br>
+        <center><li><button>Go</button></li></center>
+      </ul>
+    </div>
+  </template>
